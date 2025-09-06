@@ -10,19 +10,20 @@ Settings
   building cost increase:115%
 Layout
   use default
-Buttons
-  *CacheButton
-    name:Ammo Can
-    desc:Click this Ammo Can to gain a find!
-    on click:anim icon wobble
-    on click:yield 1 find
-    icon:https://img.geocaching.com:443/b185392a-c0ce-4e84-a187-b564c303df14.png
 Resources
-  *find|finds
+  *cache
     name:Find|Finds
     desc:You've found a cache! Use your finds to unlock new upgrades!
-    icon:https://www.geocaching.com/images/logtypes/2.png
+    icon:https://img.geocaching.com:443/b7a7d7ab-a8a7-4ac2-84e8-5246c3be252d.png
     show earned
+Buttons
+  *CacheButton
+    name:Traditional
+    desc:Click this Traditional to gain a find!
+    on click:anim icon wobble
+    on click:yield 1 cache
+    icon:https://img.geocaching.com:443/676bdf4b-1f0c-445a-86eb-f6e11412b4e4.png
+    class:bigButton
 Shinies
   *FTF
     name:FTF
@@ -31,15 +32,9 @@ Shinies
     frequency:90
     icon:https://img.geocaching.com:443/0991c92f-836d-4522-beb5-656facd06609.png
 Buildings
-  *Traditional
-    name:Traditional
-    desc:This classic Geocache earns 1 find every second!
-    on tick:yield 1 find
-    cost:50 find
-    icon:https://img.geocaching.com:443/5afe9c57-efb7-4cfc-8c23-02d971373d4c.png
   *Multi
     name:Multi Cache
-    desc:This cache type earns 3 finds every second!
-    on tick:yield 3 find
-    cost:115 find    
-    icon:https://img.geocaching.com:443/3b50f529-129b-4b14-9349-359ad90e6138.png
+    desc:This cache type earns 1 find every second!
+    on tick:yield 3 cache
+    cost:100 cache  
+    icon:https://img.geocaching.com:443/8a77d257-b62b-4d8d-904b-36b070ad2b62.png
