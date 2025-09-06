@@ -1,0 +1,45 @@
+Let's make a game!
+  name:CacheClicker
+  by:Buckeyecacher111
+  desc:Welcome to CacheClicker! Earn XXX amount of finds to obtain the final coordinates to GCXXXXXX
+  created:06/09/2025
+  updated:06/09/2025
+  version:1.0
+Settings
+  background:https://img.geocaching.com:443/a39c7796-b4ca-4673-aa9d-fb8f1590dd1a.jpg
+  building cost increase:115%
+Layout
+  use default
+Buttons
+  *CacheButton
+    name:Ammo Can
+    desc:Click this Ammo Can to gain a find!
+    on click:anim icon wobble
+    on click:yield 1 find
+    icon:https://img.geocaching.com:443/b185392a-c0ce-4e84-a187-b564c303df14.png
+Resources
+  *find|finds
+    name:Find|Finds
+    desc:You've found a cache! Use your finds to unlock new upgrades!
+    icon:https://www.geocaching.com/images/logtypes/2.png
+    show earned
+Shinies
+  *FTF
+    name:FTF
+    on click:yield (random(10,100)) find
+    movement:anywhere fade bounce moveRandom
+    frequency:90
+    icon:https://img.geocaching.com:443/0991c92f-836d-4522-beb5-656facd06609.png
+Buildings
+  *Traditional
+    name:Traditional
+    desc:This classic Geocache earns 1 find every second!
+    on tick:yield 1 find
+    cost:50 find
+    icon:https://img.geocaching.com:443/5afe9c57-efb7-4cfc-8c23-02d971373d4c.png
+  *Multi
+    name:Multi Cache
+    desc:This cache type earns 3 finds every second!
+    on tick:yield 3 find
+    cost:115 find    
+    icon:https://img.geocaching.com:443/3b50f529-129b-4b14-9349-359ad90e6138.png
