@@ -25,16 +25,131 @@ Buttons
     icon:https://img.geocaching.com:443/676bdf4b-1f0c-445a-86eb-f6e11412b4e4.png
     class:bigButton
 Shinies
-  *FTF
-    name:FTF
-    on click:yield (random(10,100)) find
+  *Signal
     movement:anywhere fade bounce moveRandom
     frequency:90
-    icon:https://img.geocaching.com:443/0991c92f-836d-4522-beb5-656facd06609.png
+    frequency variation:10
+    icon:https://appstickers-cdn.appadvice.com/1244203138/822405299/91caf9641a7f19f38f87e14488c180ef-11.png
+		on click:		
+   			$boost=1
+			//get at least 7, or between 1 and 3 minutes of our cache production
+				$amount=max(7,random(cache:ps*60*1,cache:ps*60*3))*$boost
+				toast Signal the Frog grants you<//><b>[$amount] finds</b>!
+				yield $amount cache
+			end
 Buildings
   *Multi
     name:Multi Cache
     desc:This cache type earns 1 find every second!
-    on tick:yield 3 cache
-    cost:100 cache  
+    on tick:yield 1 cache
+    cost:50 cache  
     icon:https://img.geocaching.com:443/8a77d257-b62b-4d8d-904b-36b070ad2b62.png
+  *Mystery
+    name:Mystery
+    desc:This cache type earns 5 finds every second!
+    on tick:yield 5 cache
+    cost:200 cache  
+    icon:https://img.geocaching.com:443/035d7553-3f57-457d-a6b5-ff854dfb0521.png
+    req:100 cache:earned
+  *Virtual
+    name:Virtual
+    desc:This cache type earns 15 finds every second!
+    on tick:yield 15 cache
+    cost:1000 cache  
+    icon:https://img.geocaching.com:443/cf09dcbb-3bbd-4e8f-a55e-4ebe9fa4274b.png
+    req:500 cache:earned
+  *EarthCache
+    name:EarthCache
+    desc:This cache type earns 50 finds every second!
+    on tick:yield 50 cache
+    cost:4500 cache  
+    icon:https://img.geocaching.com:443/7fbd7e27-0fd2-4a21-83c4-54df61ff7040.png
+    req:1000 cache:earned
+ *Letterbox
+    name:Letterbox
+    desc:This cache type earns 150 finds every second!
+    on tick:yield 150 cache
+    cost:7000 cache  
+    icon:https://img.geocaching.com:443/997ec926-966b-48eb-9b4f-76fd6b79042c.png
+    req:250 cache:earned
+*Wherigo
+    name:Wherigo
+    desc:This cache type earns 500 finds every second!
+    on tick:yield 500 cache
+    cost:10000 cache  
+    icon:https://img.geocaching.com:443/4e971f82-457b-4d68-9f61-1f2e318b5703.png
+    req:500 cache:earned
+ *Webcam
+    name:Webcam
+    desc:This cache type earns 1000 finds every second!
+    on tick:yield 50 cache
+    cost:25000 cache  
+    icon:https://img.geocaching.com:443/1b73010c-73aa-41bc-91f7-7d7986784723.png
+    req:1000 cache:earned
+Upgrades
+  *GPS
+    name:GPS Unit
+    desc:Finding Traditional Caches are worth 2 finds!
+    passive:multiply yield of CacheButton by 2
+    cost:100 cache
+    req:50 cache:earned
+  *Satellite
+    name:Satellite
+    desc:Finding Traditional Caches are worth 4 finds!
+    passive:multiply yield of CacheButton by 2
+    cost:500 cache
+    req:200 cache:earned
+  *Compass
+    name:Compass
+    desc:Finding Traditional Caches are worth 16 finds!
+    passive:multiply yield of CacheButton by 4
+    cost:2500 cache
+    req:1500 cache:earned
+  *EventCache
+    name:Event Cache
+    desc:All caches increase finds per second by x2!
+    passive:multiply yield of Multi by 2
+    passive:multiply yield of Mystery by 2
+		passive:multiply yield of Virtual by 2
+		passive:multiply yield of EarthCache by 2
+    passive:multiply yield of Letterbox by 2
+    passive:multiply yield of Wherigo by 2
+		passive:multiply yield of Webcam by 2
+    cost:2500 cache
+    req:(Multi>=10 or Mystery>=10 or Virtual>=10)
+    icon:https://img.geocaching.com:443/a1aea07f-20fb-4906-b251-ab0496821edb.png
+  *MegaCache
+    name:Mega Event
+    desc:All caches increase finds per second by x2!
+    passive:multiply yield of Multi by 2
+    passive:multiply yield of Mystery by 2
+		passive:multiply yield of Virtual by 2
+		passive:multiply yield of EarthCache by 2
+    passive:multiply yield of Letterbox by 2
+    passive:multiply yield of Wherigo by 2
+		passive:multiply yield of Webcam by 2
+    cost:10000 cache
+    req:(Multi>=25 or Mystery>=25 or Virtual>=25)
+    icon:https://img.geocaching.com:443/defb04b1-d419-40a0-aa7b-e8bfa0c17619.png
+  *GigaCache
+    name:Giga Event
+    desc:All caches increase finds per second by x2!
+    passive:multiply yield of Multi by 2
+    passive:multiply yield of Mystery by 2
+		passive:multiply yield of Virtual by 2
+		passive:multiply yield of EarthCache by 2
+    passive:multiply yield of Letterbox by 2
+    passive:multiply yield of Wherigo by 2
+		passive:multiply yield of Webcam by 2
+    cost:50000 cache
+    req:(Multi>=50 or Mystery>=50 or Virtual>=50)
+    icon:https://img.geocaching.com:443/efa21a78-1706-4d98-bcfe-b3c8664ea770.png
+Achievements
+	*TEMPLATE
+		on click:anim glow
+		
+	*Completion
+		name:You've beat CacheClicker!
+		desc:Enter <b>ClickTheCache</b> into the checker to obtain the final coordinates!
+		req:1000000 cache
+		icon:https://img.geocaching.com:443/2d861c73-65f9-4f60-9f20-5109857cf8c7.png
